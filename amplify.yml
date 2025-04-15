@@ -1,12 +1,12 @@
 version: 1
+appId: your-app-id
 applications:
   - frontend:
       phases:
         preBuild:
           commands:
-            - nvm install 22
-            - nvm use 22
-            - npm install
+            - nvm use 22 || nvm install 22
+            - npm ci
         build:
           commands:
             - npm run build
@@ -17,3 +17,11 @@ applications:
       cache:
         paths:
           - node_modules/**/*
+    appRoot: /
+distribution:
+  router:
+    middlewares:
+      - type: HttpToHttps
+      - type: ServerSideRendering
+        settings:
+          originPath: /.amplify-hosting/compute

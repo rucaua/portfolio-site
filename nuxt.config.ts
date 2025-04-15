@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     ssr: true,
 
     nitro: {
-        preset: 'aws-lambda'
+        preset: 'anode-server'
     },
 
     runtimeConfig: {
