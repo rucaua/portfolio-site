@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     ssr: true,
 
     nitro: {
-        preset: 'anode-server'
+        preset: 'node-server'
     },
 
     runtimeConfig: {
