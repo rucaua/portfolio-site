@@ -5,12 +5,16 @@ applications:
       phases:
         preBuild:
           commands:
-            - nvm install 22
-            - nvm use 22
+            - nvm install 20
+            - nvm use 20
             - npm ci
         build:
           commands:
+            - echo "Node version: $(node -v)"
+            - echo "NPM version: $(npm -v)"
             - npm run build
+            - ls -la .output/
+
       artifacts:
         baseDirectory: .output
         files:
@@ -21,7 +25,6 @@ applications:
     distribution:
       router:
         middlewares:
-          - type: HttpToHttps
           - type: ServerSideRendering
             settings:
               originPath: /.amplify-hosting/compute

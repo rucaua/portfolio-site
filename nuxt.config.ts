@@ -30,9 +30,6 @@ export default defineNuxtConfig({
 
     nitro: {
         preset: 'node-server',
-        routeRules: {
-            '/**': { cors: true, headers: { 'Cache-Control': 'no-store' } },
-        },
         logLevel: 'debug'
     },
 
