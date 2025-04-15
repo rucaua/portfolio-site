@@ -1,6 +1,7 @@
 version: 1
 applications:
-  - frontend:
+  - appRoot: .
+    frontend:
       phases:
         preBuild:
           commands:
@@ -17,3 +18,10 @@ applications:
       cache:
         paths:
           - node_modules/**/*
+    distribution:
+      router:
+        middlewares:
+          - type: HttpToHttps
+          - type: ServerSideRendering
+            settings:
+              originPath: /.amplify-hosting/compute

@@ -29,7 +29,11 @@ export default defineNuxtConfig({
     ssr: true,
 
     nitro: {
-        preset: 'node-server'
+        preset: 'node-server',
+        routeRules: {
+            '/**': { cors: true, headers: { 'Cache-Control': 'no-store' } },
+        },
+        logLevel: 'debug'
     },
 
     runtimeConfig: {
@@ -48,6 +52,8 @@ export default defineNuxtConfig({
     },
 
     app: {
+        baseURL: '/',
+        buildAssetsDir: '/_nuxt/',
         head: {
             title: 'Max Tymofeiev - Professional Portfolio',
             meta: [
